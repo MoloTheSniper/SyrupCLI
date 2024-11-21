@@ -1,10 +1,15 @@
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import * as React from 'react';
-import { View, Button, StyleSheet ,Text} from 'react-native';
+import { View, Button, StyleSheet ,Text, Pressable} from 'react-native';
+import { ScreenType } from '../../Routes';
 
 const Home = (): React.JSX.Element=> {
+    const navigation = useNavigation<NavigationProp<ScreenType>>();
   return (
     <View style={styles.container}>
-        <Text>Home</Text>
+        <Pressable onPress ={()=>navigation.navigate('Login')}>
+             <Text style ={{fontSize: 40}}>First Home</Text>
+        </Pressable>
     </View>
   );
 };
