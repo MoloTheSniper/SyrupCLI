@@ -1,22 +1,14 @@
-import { StatusBar, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import * as React from 'react';
+import { View, Button, StyleSheet ,Text} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Routes from './src/navigations/Routes';
 
-const App = () => {
+const App = (): React.JSX.Element => {
   return (
-    <View style = {styles.container}>
-      <Text >Syrup!</Text>
-    </View>
-  )
-}
+    <SafeAreaView style ={{flex: 1}}>
+      <Routes/>
+    </SafeAreaView>
+  );
+};
 
-export default App
-
-const styles = StyleSheet.create({
-  container:{
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: 'center',
-    justifyContent: 'center',
-
-  }
-})
+export default App;
