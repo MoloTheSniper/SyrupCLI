@@ -1,15 +1,21 @@
-import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { NavigationProp, useNavigation, useRoute } from '@react-navigation/native';
 import * as React from 'react';
 import { View, Button, StyleSheet ,Text, Pressable} from 'react-native';
 import { ScreenType } from '../../Routes';
 
 const Home = (): React.JSX.Element=> {
     const navigation = useNavigation<NavigationProp<ScreenType>>();
+    const route : any= useRoute();
+    console.log(route, 'route');
   return (
     <View style={styles.container}>
-        <Pressable onPress ={()=>navigation.navigate('Login')}>
-             <Text style ={{fontSize: 40}}>First Home</Text>
+        <Text style ={{fontSize: 40}}>First Home</Text>
+        <Pressable onPress ={()=>navigation.goBack()}>
+             <Text>Go Back</Text>
         </Pressable>
+        <Text>{route?.params.data}</Text>
+        <Text>{route?.params.age}</Text>
+        <Text>{route?.params.country}</Text>
     </View>
   );
 };
