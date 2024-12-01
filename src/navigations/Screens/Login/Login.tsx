@@ -16,10 +16,21 @@ const Login = () => {
     const auth = FIREBASE_AUTH;
     return (
         <View style={styles.container}>
-            <Pressable onPress={() => navigation.navigate('Home', { data: 'Moloko', age: 25, country: 'South Africa' })}>
+            <Pressable 
+                onPress={() => navigation.navigate('Home', { data: 'Moloko', age: 25, country: 'South Africa' })}>
                 <Text>Login</Text>
-                <TextInput style ={styles.input}></TextInput>
             </Pressable>
+            <TextInput style ={styles.input} placeholder='Email'
+                autoCapitalize='none' value = {email} 
+                onChangeText={(text) => setEmail(text)}>
+            </TextInput>
+
+            <TextInput style ={styles.input} placeholder='Password'
+                autoCapitalize='none' value = {password}
+                secureTextEntry = {true} 
+                onChangeText={(text) => setPassword(text)}>
+            </TextInput>
+            
         </View>
     );
 };
@@ -29,7 +40,6 @@ const styles = StyleSheet.create({
         flex: 1,
         marginHorizontal: 20,
         justifyContent: 'center',
-        alignItems: 'center',  // Ensures the button is centered
     },
     input:{
         marginVertical: 4,
